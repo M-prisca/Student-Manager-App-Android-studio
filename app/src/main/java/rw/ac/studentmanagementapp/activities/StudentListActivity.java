@@ -9,6 +9,8 @@ import android.widget.Toast;
 import rw.ac.studentmanagementapp.R;
 import rw.ac.studentmanagementapp.database.DatabaseHelper;
 import java.util.ArrayList;
+import android.content.Intent;
+
 
 public class StudentListActivity extends AppCompatActivity {
 
@@ -30,18 +32,20 @@ public class StudentListActivity extends AppCompatActivity {
 
         loadStudents();
 
-        listView.setOnItemLongClickListener((parent, view, position, id) -> {
-            // Delete student on long click
+        listView.setOnItemClickListener((parent, view, position, id) -> {
             Cursor cursor = db.getAllStudents();
             cursor.moveToPosition(position);
             int studentId = cursor.getInt(0);
-            boolean deleted = db.deleteStudent(studentId);
-            if(deleted) {
-                Toast.makeText(this, "Deleted successfully", Toast.LENGTH_SHORT).show();
-                loadStudents();
-            }
-            return true;
+            String name = cursor.getString(1);
+            int age = cursor.getInt(2);
+
+            Intent intent = new Intent(this, AddStudentActivity.class);
+            intent.putExtra("studentId", studentId);
+            intent.putExtra("studentName", name);
+            intent.putExtra("studentAge", age);
+            startActivity(intent);
         });
+
     }
 
     private void loadStudents() {

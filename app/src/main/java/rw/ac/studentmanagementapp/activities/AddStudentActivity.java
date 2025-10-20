@@ -41,5 +41,20 @@ public class AddStudentActivity extends AppCompatActivity {
                 Toast.makeText(this, "Error adding student", Toast.LENGTH_SHORT).show();
             }
         });
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            int studentId = extras.getInt("studentId");
+            etName.setText(extras.getString("studentName"));
+            etAge.setText(String.valueOf(extras.getInt("studentAge")));
+
+            btnSave.setOnClickListener(v -> {
+                String name = etName.getText().toString();
+                int age = Integer.parseInt(etAge.getText().toString());
+                db.updateStudent(studentId, name, age);
+                Toast.makeText(this, "Student updated", Toast.LENGTH_SHORT).show();
+                finish();
+            });
+        }
+
     }
 }
