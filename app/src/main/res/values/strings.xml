@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">StudentManagementApp</string>
+    <string name="hint_name">Enter name</string>
+    <string name="hint_age">Enter age</string>
+    <string name="btn_save_student">Save Student</string>
+    <string name="btn_add_student">Add Student</string>
+    <string name="btn_view_students">View Students</string>
+    <string name="btn_export_csv">Export to CSV</string>
+    <string name="btn_shared_prefs">Open Shared Preferences</string>
 </resources>
