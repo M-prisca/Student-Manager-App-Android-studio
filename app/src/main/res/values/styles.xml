@@ -1,0 +1,14 @@
+<resources>
+    <!-- Dark green background -->
+    <color name="primaryColor">#006400</color>        <!-- Dark green -->
+
+    <!-- Gray buttons -->
+    <color name="gray500">#9E9E9E</color>
+
+    <!-- Background color -->
+    <color name="backgroundColor">#1C1C1C</color>    <!-- Almost black / dark gray -->
+
+    <!-- Text colors -->
+    <color name="textBlack">#000000</color>
+    <color name="grayLabel">#B0B0B0</color>          <!-- For EditText hints / labels -->
+</resources>
